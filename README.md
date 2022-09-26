@@ -1,6 +1,6 @@
 # despesas
 Controle despesas familiar
-# roubank-app
+
 
 Este projeto tem como objetivo implementar uma aplicação para gestão e controle de despesas familiares, como despesas com saúde, educação, alimentação, financiameto e etc.
 
