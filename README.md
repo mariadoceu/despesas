@@ -10,7 +10,6 @@ https://github.com/mariadoceu/despesas
 # Protótipo
 https://www.figma.com/file/mv9WXTskY30kgbFxgzYgOl/Despesas?node-id=7%3A49
 
-Ainda não definido
 
 # Checklist
 
