@@ -1,12 +1,14 @@
-import { BotaoComponent } from './botao/botao.component';
+
 import { HomeComponent } from './home/home.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { RodapeComponent } from './rodape/rodape.component';
 
 const routes: Routes = [
 
   {path: 'home', component:HomeComponent},
-  {path: 'botao', component:BotaoComponent},
+  
+
   {path: '', redirectTo: '/home' , pathMatch: 'full'}
 
 ];

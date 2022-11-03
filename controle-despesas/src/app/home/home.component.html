@@ -1,6 +1,53 @@
 
-<div class="conteudo container themed-container text-center">
+<main>
+<div class="container">
+    <div class="row top-nav ">        
+        <div class="col s12 m4 ">            
+            <div class="card hoverable">
+                <div class="card-image"> 
+                <!-- <img src="/assets/card-img-cadDespesas.png"> -->
+                <img [src]="card01" class="responsive-img">
+                <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+                </div>
+                <div class="card-content">             
+                <p><b>Cadastrar todas as despesas</b><br />
+                    Cadastre as despesas no sistemas, para melhor organização financeira</p>
+                </div>
+            </div>
+        </div>
+      
 
-  <app-topo></app-topo>
 
+        <div class="col s12 m4">
+        <div class="card hoverable">
+          <div class="card-image">
+              <!-- <img src="/assets/card-img-verDespesas.png">            -->
+              <img [src]="card02" class="responsive-img">
+            <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+          </div>
+          
+          <div class="card-content">           
+            <p><b>Ver todos as despesas</b><br />
+                Nesta área, você visualiza todas as despesas cadastradas, com os principais detalhes.</p>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="col s12 m4">
+        <div class="card hoverable">
+          <div class="card-image">
+              <!-- <img src="/assets/card-img-cadReceita.png"> -->
+              <img [src]="card03" class="responsive-img">
+            <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+          </div>
+          <div class="card-content">
+           <p><b>Cadastro de receita</b><br /> 
+            Faça o cadastro das receitas que compõe o seu orçamento.</p>
+          </div>
+        </div>
+      </div>
+    </div>  
 </div>
+</main>
+<app-rodape></app-rodape>
