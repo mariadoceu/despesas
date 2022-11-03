@@ -4,14 +4,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { TopoComponent } from './topo/topo.component';
-import { BotaoComponent } from './botao/botao.component';
+import { RodapeComponent } from './rodape/rodape.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     TopoComponent,
-    BotaoComponent
+    RodapeComponent
   ],
   imports: [
     BrowserModule,
