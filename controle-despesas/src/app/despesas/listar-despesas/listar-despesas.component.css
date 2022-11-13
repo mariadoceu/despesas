@@ -1,0 +1,21 @@
+.example-card {
+    max-width: 100%;
+  }
+
+  mat-grid-tile {
+    background: lightblue;
+  }
+  
+  .fab_x {
+    top: auto;
+    right: 20px;
+    bottom: 20px;
+    left: auto;
+    position: fixed;
+    }
+
+
+    button {
+      margin-right: 8px;
+    }
+    
