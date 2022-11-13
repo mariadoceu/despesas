@@ -6,7 +6,7 @@ import { Input } from '@angular/core';
   styleUrls: ['./despesa-model-item.component.css']
 })
 export class DespesaModelItemComponent implements OnInit {
-  @Input() despesa!: { descricao: any; valor: any; }
+  @Input() despesa!: { descricao: any; valor: any; vencimento: any; }
 
   constructor() { }
 

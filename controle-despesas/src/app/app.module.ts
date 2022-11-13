@@ -19,13 +19,19 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { FormsModule } from '@angular/forms';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import {MatIconModule} from '@angular/material/icon';
+import {MatCardModule} from '@angular/material/card';
 // Despesas
 import { ListarDespesasComponent } from './despesas/listar-despesas/listar-despesas.component';
 import { DespesaModelItemComponent } from './despesas/despesa-model-item/despesa-model-item.component';
 import { EditarDespesaComponent } from './despesas/editar-despesa/editar-despesa.component';
 import { CadastrarDespesaComponent } from './despesas/cadastrar-despesa/cadastrar-despesa.component';
-import {MatCardModule} from '@angular/material/card';
-import { CadastrarReceitasComponent } from './receitas/cadastrar-receitas/cadastrar-receitas.component'; 
+
+// Receitas
+import { CadastrarReceitasComponent } from './receitas/cadastrar-receitas/cadastrar-receitas.component';
+import { ListarReceitasComponent } from './receitas/listar-receitas/listar-receitas.component';
+import { EditarReceitasComponent } from './receitas/editar-receitas/editar-receitas.component';
+import { ReceitaModelItemComponent } from './receitas/receita-model-item/receita-model-item.component';
+
 @NgModule({
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   declarations: [
@@ -39,7 +45,10 @@ import { CadastrarReceitasComponent } from './receitas/cadastrar-receitas/cadast
     DespesaModelItemComponent,
     EditarDespesaComponent,
     CadastrarDespesaComponent,
-    CadastrarReceitasComponent
+    CadastrarReceitasComponent,
+    ListarReceitasComponent,
+    EditarReceitasComponent,
+    ReceitaModelItemComponent,
   ],
   imports: [
     BrowserModule,

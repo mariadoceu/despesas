@@ -11,3 +11,42 @@ mat-grid-tile {
   .example-full-width {
     width: 100%;
   }
+
+  h1 {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 30px;
+    color: #FB9702;
+    }
+
+    h2 {
+      font-family: 'Roboto';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 20px;    
+      color: #00574C;
+   }
+    
+    .container {
+    margin-top: 30px;
+   }
+
+   form {
+
+   margin:30px; 
+
+   }
+
+   .bt-salvar {    
+    background: #7749F8;
+    color: #FFFFFF;
+    font-weight: 100;
+  }
+
+  
+  .bt-cancelar {    
+    background: #FB9702;
+    color: #FFFFFF;
+    font-weight: 100;
+  }

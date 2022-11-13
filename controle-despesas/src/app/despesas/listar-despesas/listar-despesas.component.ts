@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { EventEmitter, Input, Output } from '@angular/core';
-import { Router } from '@angular/router';
+import { Data, Router } from '@angular/router';
 
 // Modelo da classe Despesa
 export interface Despesa {
   id: number;
   descricao: string;
   valor: number;
+  vencimento: string;
 }
 @Component({
   selector: 'app-listar-despesas',
@@ -17,6 +18,7 @@ export class ListarDespesasComponent implements OnInit {
 
   descricao!: string;
   valor!: string;
+  vencimento!:string;
   despesas: Despesa[];
 
 
@@ -26,23 +28,25 @@ export class ListarDespesasComponent implements OnInit {
         id: 1,
         descricao: 'Conta de Luz',
         valor: 190.3,
+        vencimento: '10/12/2022',
       },
       {
         id: 2,
         descricao: 'Conta de Água',
         valor: 88.6,
+        vencimento: '10/12/2022',
       },
       {
         id: 3,
         descricao: 'Conta de Internet',
         valor: 37.3,
+        vencimento: '10/12/2022',
       },
     ];
   }
-  // Create method openEdit(dispesa)
-  openEdit(despesa: { id: any; descricao: any; valor: any; }): void {
-    // Navigate to /despesas/editar
-    this.router.navigate(['/despesas/editar', despesa.descricao, despesa.valor]);
+  openEdit(despesa: { id: any; descricao: any; valor: any; vencimento: any;}): void {
+
+    this.router.navigate(['/despesas/editar', despesa.descricao, despesa.valor, despesa.vencimento]);
   }
 
   adicionarNovaDespesa() {
@@ -51,8 +55,7 @@ export class ListarDespesasComponent implements OnInit {
 
   deletarDespesa(despesa: { id: any; descricao: any; valor: any; }): void {
     // Criar uma caixa de dialogo perguntado se deseja realmente excluir
-    // Se sim, excluir a despesa
-    // Se não, não fazer nada
+  
     let dialogo = confirm("Deseja realmente excluir a despesa?");
     if (dialogo) {
       // Percore o array de despesas
@@ -68,7 +71,6 @@ export class ListarDespesasComponent implements OnInit {
 
 
   }
-
 
 
   ngOnInit(): void {

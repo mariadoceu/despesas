@@ -1,3 +1,4 @@
+
 // Despesas
 import { ListarDespesasComponent } from './despesas/listar-despesas/listar-despesas.component';
 import { CadastrarDespesaComponent } from './despesas/cadastrar-despesa/cadastrar-despesa.component';
@@ -5,6 +6,8 @@ import { EditarDespesaComponent } from './despesas/editar-despesa/editar-despesa
 
 // Receitas
 import { CadastrarReceitasComponent } from './receitas/cadastrar-receitas/cadastrar-receitas.component';
+import { ListarReceitasComponent } from './receitas/listar-receitas/listar-receitas.component';
+import { EditarReceitasComponent } from './receitas/editar-receitas/editar-receitas.component';
 
 // Outras páginas
 import { HomeComponent } from './home/home.component';
@@ -12,7 +15,7 @@ import { SobreComponent } from './sobre/sobre.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 
 // Módulos
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 // Roteamento
 import { RouterModule, Routes } from '@angular/router';
 // Página de roda pé
@@ -23,13 +26,17 @@ const routes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'home', component: HomeComponent},
   {path: 'sobre', component: SobreComponent},
+  
   // Despesas
   {path: 'despesas/listar', component: ListarDespesasComponent},
-  {path: 'despesas/editar/:descricao/:valor', component: EditarDespesaComponent},
+  {path: 'despesas/editar/:descricao/:valor/:vencimento', component: EditarDespesaComponent},
   {path: 'despesas/cadastrar', component: CadastrarDespesaComponent},
+  
   // Receitas
-  {path: 'receitas/cadastrar', component: CadastrarReceitasComponent},
-  // ...
+  {path: 'receitas/listar-receitas', component: ListarReceitasComponent},
+  {path: 'receitas/cadastrar-receitas', component: CadastrarReceitasComponent},
+  {path: 'receitas/editar/:descricao/:valor', component: EditarReceitasComponent},
+  
   
   // 404
   {path: '**', pathMatch: 'full', component: PagenotfoundComponent },
@@ -42,3 +49,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+ 

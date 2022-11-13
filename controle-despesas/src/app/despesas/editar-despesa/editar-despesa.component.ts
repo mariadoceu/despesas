@@ -9,6 +9,7 @@ import { ActivatedRoute } from '@angular/router';
 export class EditarDespesaComponent implements OnInit {
   descricao!: string;
   valor!: string;
+  vencimento!: string;
   constructor(public route: ActivatedRoute) {
     
   }
@@ -17,6 +18,7 @@ export class EditarDespesaComponent implements OnInit {
     // Recuperar os dados da url 
     this.descricao = this.route.snapshot.params['descricao'];
     this.valor = this.route.snapshot.params['valor'];
+    this.vencimento = this.route.snapshot.params['vencimento'];
   }
 
 }
