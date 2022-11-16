@@ -1,3 +1,4 @@
+import { NgxMaskModule, IConfig } from 'ngx-mask'
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
@@ -17,9 +18,14 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import {MatListModule} from '@angular/material/list'; 
 import {MatDialogModule} from '@angular/material/dialog'; 
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import {MatIconModule} from '@angular/material/icon';
 import {MatCardModule} from '@angular/material/card';
+
+import { CpfPipe } from './pipes/cpf.pipe';
+import { ExponentialStrengthPipe } from './pipes/exponential-strength.pipe';
+
 // Despesas
 import { ListarDespesasComponent } from './despesas/listar-despesas/listar-despesas.component';
 import { DespesaModelItemComponent } from './despesas/despesa-model-item/despesa-model-item.component';
@@ -31,10 +37,16 @@ import { CadastrarReceitasComponent } from './receitas/cadastrar-receitas/cadast
 import { ListarReceitasComponent } from './receitas/listar-receitas/listar-receitas.component';
 import { EditarReceitasComponent } from './receitas/editar-receitas/editar-receitas.component';
 import { ReceitaModelItemComponent } from './receitas/receita-model-item/receita-model-item.component';
+import { UserComponent } from './user/user.component';
+import { TotalUsersComponent } from './user/total-users/total-users.component';
+import { LoginComponent } from './login/login.component';
+import { NotauthorizedComponent } from './notauthorized/notauthorized.component';
 
 @NgModule({
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   declarations: [
+    ExponentialStrengthPipe,
+    CpfPipe,
     AppComponent,
     HomeComponent,
     TopoComponent,
@@ -49,6 +61,10 @@ import { ReceitaModelItemComponent } from './receitas/receita-model-item/receita
     ListarReceitasComponent,
     EditarReceitasComponent,
     ReceitaModelItemComponent,
+    UserComponent,
+    TotalUsersComponent,
+    LoginComponent,
+    NotauthorizedComponent,
   ],
   imports: [
     BrowserModule,
@@ -62,9 +78,11 @@ import { ReceitaModelItemComponent } from './receitas/receita-model-item/receita
     MatGridListModule,
     MatListModule,
     MatDialogModule,
+    HttpClientModule,
     FormsModule,
     MatIconModule,
-    MatCardModule
+    MatCardModule,
+    NgxMaskModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]

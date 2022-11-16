@@ -1,40 +1,128 @@
-<div class="container">
+<div class="container contact">
+    <h1>Administração de Despesas</h1>
+    <h2>Nesta página, podemos fazer a administração dos despesas. Incluir, editar, excluir...</h2>
+  
+    <div class="row">
+      <div class="col s12">
+        <div
+          id="msg-login"
+          class="card-panel white-text"
+          [class.red]="!this.isSuccess"
+          [class.blue]="this.isSuccess"
+          *ngIf="this.isShowMessage"
+        >
+          {{ this.message }}
+        </div>
+      </div>
+      <form class="col s12" #form="ngForm" (submit)="onSubmit()">
+        <p>Preencha os campos abaixo para cadastrar um novo despesa</p>
+        
+  
+        <div class="input-field col s12">
+          <input
+            id="input-descricao"
+            name="input-descricao"
+            type="text"
+            class="validate"
+            [(ngModel)]="this.desp.descricao"              
+            #descricao="ngModel"
+            required
+          />
+          <label for="input-descricao">Nome de Despesa *</label>
+          <!-- <div class="red-text" [hidden]="descricao.valid || descricao.untouched">
+            Por favor, informe o seu despname em letras minúsculas e sem espaços.
+          </div> -->
+        </div>
+
+
+        <div class="input-field col s12 l6">
+          <input
+            id="input-valor"
+            name="input-valor"
+            type="text"
+            class="validate"
+            [(ngModel)]="this.desp.valor"          
+            #valor="ngModel"
+            required
+          />
+          <label for="input-valor">Valor *</label>
+          <div class="red-text" [hidden]="valor.valid || valor.untouched">
+            Por favor, informe o seu CPF.
+          </div>
+        </div>
        
-            <h1>Despesas</h1>
-        
-            <h2>Nesta página, podemos ver a lista de todas as depesas, cadastrar novas no botão de + , editar ou excluir.</h2>
-            <p>(lista gerada a partir interface, para exemplo de passagem de parâmetros)</p>
-        
-            <br/>
-             
-         
-                <button mat-fab color="warn" class="right" (click)="adicionarNovaDespesa()">
-                    <mat-icon>add</mat-icon>
-                </button>
-         
-
-            <div class="mat-list">
-                <mat-list-item>
-                    <mat-card class="example-card" *ngFor="let despesa of despesas" style="margin-bottom: 10px;">
-                        <mat-card-content>
-                            <p>
-                                <app-despesa-model-item [despesa]="despesa"></app-despesa-model-item>
-                            </p>
-                        </mat-card-content>
-                        <mat-card-actions>
-                        <button mat-button color="primary" (click)="openEdit(despesa)">Editar</button>
-                                <button mat-button color="warn"  (click)="deletarDespesa(despesa)">Excluír</button>
-                        </mat-card-actions>
-                    </mat-card>        
-                </mat-list-item>
-            </div>
-
-            <div class="row">
-                <button mat-fab color color="warn" class="right" onclick="window.history.go(-1);">Voltar</button>
-              </div>
-            
-</div>
-
-<br/>
-<br/>
-<app-rodape></app-rodape>
+  
+        <div class="input-field col s12 l6">
+          <input
+            id="input-vencimento"
+            name="input-vencimento"
+            type="date"
+            class="validate"
+            [(ngModel)]="this.desp.vencimento"
+          />
+          <label for="input-vencimento">Vencimento</label>
+        </div>
+  
+        <button
+          class="btn waves-effect waves-light amber darken-4"
+          type="submit"
+          [disabled]="!form.valid"
+        >
+          Enviar
+          <i class="material-icons right">send</i>
+        </button>
+      </form>
+    </div>
+  
+  
+    <h1>Despesas cadastrados</h1>
+    <!-- Tabela de despesas -->
+    <table class="highlight" *ngIf="desps && desps!.length > 0">
+      <thead>
+        <tr>
+          <th>Descricacao</th>
+          <th>Valor</th>
+          <th>Vencimento</th>
+          <!-- <th>Saldo</th> -->
+          <th></th>
+        </tr>
+      </thead>
+  
+      <tbody>
+        <tr *ngFor="let d of desps">
+          <td>{{ d.descricao | titlecase }}</td>
+          <td>{{ d.valor}}</td>
+          <td>{{ d.vencimento}}</td>
+          <!-- <td>{{ u.balance | currency: "BRL" }}</td> -->
+          <td class="right">
+            <a
+              ><i class="material-icons my-icon-size" (click)="onEdit(d)"
+                >edit</i
+              ></a
+            >
+            <a
+              ><i
+                class="material-icons my-icon-size"
+                (click)="onDelete(d.descricao)"
+                >delete</i
+              ></a
+            >
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <div *ngIf="!desps || desps!.length == 0">
+      <div class="row">
+        <div class="center-align">
+          <i class="col s12 material-icons large">mood_bad</i>
+          <span class="col s12 flow-text"
+            >Ainda não temos despesas cadastrados!</span
+          >
+        </div>
+      </div>
+    </div>
+  
+    <app-total-desps></app-total-desps>
+  </div>
+  
