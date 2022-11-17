@@ -8,40 +8,59 @@ import { Despesa } from './../../model/despesa';
 
 @Injectable()
 export class DespesaStorageService { 
-    desp!: Despesa[];
+    desps!: Despesa[];
     private despSource!: BehaviorSubject<number>;
     constructor() { 
-        this.desp = WebStorageUtil.get(Constants.USERS_KEY);
-        this.despSource = new BehaviorSubject<number>(this.desp.length);
+        this.desps = WebStorageUtil.get(Constants.DESPESAS_KEY);
+        console.log("this.desps: " + this.desps);
+        if (this.desps == null){
+          this.desps = [];
+        }
+        this.despSource = new BehaviorSubject<number>(this.desps.length);
 
     }
 
-    save(desp: Despesa) {
-        this.desp = WebStorageUtil.get(Constants.USERS_KEY);
-        this.desp.push(desp);
-        WebStorageUtil.set(Constants.USERS_KEY, this.desp);
+    save(desps: Despesa) {
+        this.desps = WebStorageUtil.get(Constants.DESPESAS_KEY);
+        this.desps.push(desps);
+        WebStorageUtil.set(Constants.DESPESAS_KEY, this.desps);
       }
 
     /* métodos para o CRUD */
       update(desp: Despesa) {
-        this.desp = WebStorageUtil.get(Constants.USERS_KEY);
-        this.delete(desp.descricao);
+        this.desps = WebStorageUtil.get(Constants.DESPESAS_KEY);
+        this.delete(desp);        
+        console.log("desp id" + desp.id);        
         this.save(desp);
-      }
+      } 
+      
+      
     
-      delete(descricao: string): boolean {
-        this.desp = WebStorageUtil.get(Constants.USERS_KEY);
-        this.desp = this.desp.filter((d) => {
-          return d.descricao?.valueOf() != descricao?.valueOf();
+      // delete(id: string): boolean {
+      //   this.desps = WebStorageUtil.get(Constants.DESPESAS_KEY);
+      //   this.desps = this.desps.filter((d) => {
+      //     return d.id?.valueOf() != id?.valueOf();
+      //   });
+
+      delete(desp: Despesa): boolean {
+        this.desps = WebStorageUtil.get(Constants.DESPESAS_KEY);
+        var newDesps: Despesa[] = [];
+        this.desps.forEach(d => {
+          // console.log("u.username: " + u.username +" == " +"username: " + user.username) 
+          if (d.id != desp.id){
+            
+            newDesps.push(d);
+          }
         });
+
     
-        WebStorageUtil.set(Constants.USERS_KEY, this.desp);
+        WebStorageUtil.set(Constants.DESPESAS_KEY, this.desps);
         return true;
       }
     
       isExist(value: string): boolean {
-        this.desp = WebStorageUtil.get(Constants.USERS_KEY);
-        for (let u of this.desp) {
+        this.desps = WebStorageUtil.get(Constants.DESPESAS_KEY);
+        for (let u of this.desps) {
           if (u.descricao?.valueOf() == value?.valueOf()) {
             return true;
           }
@@ -50,8 +69,8 @@ export class DespesaStorageService {
       }
     
       getDespesa(): Despesa[] {
-        this.desp = WebStorageUtil.get(Constants.USERS_KEY);
-        return this.desp;
+        this.desps = WebStorageUtil.get(Constants.DESPESAS_KEY);
+        return this.desps;
       }
     
       notifyTotalUsers() {
@@ -62,6 +81,8 @@ export class DespesaStorageService {
         return this.despSource;
    
       }
+
+      
 
 
 

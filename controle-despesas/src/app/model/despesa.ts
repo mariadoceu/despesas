@@ -1,22 +1,22 @@
 export class Despesa {
-  id!: string;
+  id: string;  
   descricao: string;    
   valor: number;
   vencimento?: Date;
 
-  constructor(descricao: string, valor: number) {
+  constructor(id: string, descricao: string, valor: number) {
     this.id = String(Math.round(Math.random() * 1000));
     this.descricao = descricao;
     this.valor = valor;
     this.vencimento = new Date();
-
   }
 
   public static clone(desp: Despesa) {
-    let d: Despesa = new Despesa(desp.descricao, desp.valor);
+    let d: Despesa = new Despesa(desp.id, desp.descricao, desp.valor);
+    d.id = desp.id
     d.descricao = desp.descricao;
     d.valor = desp.valor;
-    d.vencimento = desp.vencimento;
+    d.vencimento = desp.vencimento;   
     return d;
   }
 
@@ -26,7 +26,8 @@ export class Despesa {
    * @returns
    */
   public static toWS(desp: Despesa) {
-    let d: Despesa = new Despesa(desp.descricao, desp.valor);
+    let d: Despesa = new Despesa(desp.id, desp.descricao, desp.valor);
+    d.id = desp.id;
     d.descricao = desp.descricao;
     d.valor = desp.valor;
     d.vencimento = desp.vencimento;   

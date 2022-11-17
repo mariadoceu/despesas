@@ -26,17 +26,25 @@ export class UserStorageService {
     /* métodos para o CRUD */
       update(user: User) {
         this.users = WebStorageUtil.get(Constants.USERS_KEY);
-        this.delete(user.username);
+        console.log(user.id)
+        this.delete(user);
         this.save(user);
       }
     
-      delete(username: string): boolean {
+      delete(user: User): boolean {
         this.users = WebStorageUtil.get(Constants.USERS_KEY);
-        this.users = this.users.filter((u) => {
-          return u.username?.valueOf() != username?.valueOf();
+        var newUsers: User[] = [];
+        this.users.forEach(u => {
+          console.log("u.username: " + u.username +" == " +"username: " + user.username) 
+          if (u.username != user.username){
+            newUsers.push(u);
+          }
         });
+
+        console.log("New users: " + newUsers);
+        console.log("Old users: " + this.users);
     
-        WebStorageUtil.set(Constants.USERS_KEY, this.users);
+        WebStorageUtil.set(Constants.USERS_KEY, newUsers);
         return true;
       }
     

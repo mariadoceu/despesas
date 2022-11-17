@@ -13,8 +13,9 @@ export class AppComponent implements AfterViewInit{
 
   ngAfterViewInit(): void {
     M.Sidenav.init(this.sideNav?.nativeElement);
-    
+
   }
+  
 
 
 }

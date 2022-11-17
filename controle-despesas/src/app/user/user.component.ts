@@ -58,20 +58,22 @@ export class UserComponent implements OnInit {
    * imediatamente na lista de usuários cadastrados sem pressionar o submit.
    * @param user
    */
-  onEdit(user: User) {
+  onEdit(user: User, id: string) {
+    user.id = id;
     //this.user = user;
     let clone = User.clone(user);
     this.user = clone;
   }
 
-  onDelete(username: string) {
+  onDelete(u: User, id: string) {
+    u.id = id;
     let confirmation = window.confirm(
-      'Você tem certeza que deseja remover ' + username
+      'Você tem certeza que deseja remover ' + u.username
     );
     if (!confirmation) {
       return;
     }
-    let response: boolean = this.userService.delete(username);
+    let response: boolean = this.userService.delete(u);
     this.isShowMessage = true;
     this.isSuccess = response;
     if (response) {

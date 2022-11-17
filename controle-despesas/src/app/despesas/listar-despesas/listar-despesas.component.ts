@@ -7,16 +7,6 @@ import { NgForm } from '@angular/forms';
 import { DespesaStorageService } from './listar-despesas-storage.service';
 import { Shared } from 'src/app/util/shared';
 
-// Modelo da classe Despesa
-// export interface Despesa {
-//   id: number;
-//   descricao: string;
-//   valor: number;
-//   vencimento: string;
-// }
-
-
-
 @Component({
   selector: 'app-listar-despesas',
   templateUrl: './listar-despesas.component.html',
@@ -46,22 +36,14 @@ export class ListarDespesasComponent implements OnInit {
   
   ngOnInit(): void {
     Shared.initializeWebStorage();
-    this.desp = new Despesa('', 0);
+    this.desp = new Despesa('', '', 0);
     this.desps = this.despService.getDespesa();
   }
-  // openEdit(despesa: { id: any; descricao: any; valor: any; vencimento: any;}): void {
-  //   this.router.navigate(['/despesas/editar', despesa.descricao, despesa.valor, despesa.vencimento]);
-  // }
+
   onEdit(desp: Despesa) {
     let clone = Despesa.clone(desp);
-    this.desp = clone;
+    this.desp = clone; 
   }
-
-
-
-  // adicionarNovaDespesa() {
-  //   this.router.navigate(['/despesas/cadastrar']);
-  // }
 
   onSubmit() {
     this.isSubmitted = true;
@@ -73,39 +55,20 @@ export class ListarDespesasComponent implements OnInit {
     this.isShowMessage = true;
     this.isSuccess = true;
     this.message = 'Cadastro realizado com sucesso!';
-
     this.form.reset();
-    this.desp = new Despesa('', 0);
-
+    this.desp = new Despesa('','', 0);
     this.desps = this.despService.getDespesa();
-
     this.despService.notifyTotalUsers();
   }
 
-
-  // deletarDespesa(despesa: { id: any; descricao: any; valor: any; vencimento: any}): void {  
-  //   let dialogo = confirm("Deseja realmente excluir a despesa?");
-  //   if (dialogo) {
-  //     // Percore o array de despesas
-  //     for (let i = 0; i < this.despesas.length; i++) {
-  //       // Verifica se a despesa atual é a despesa que deseja excluir
-  //       if (this.despesas[i].id == despesa.id) {
-  //         console.log("Despesa encontrada");
-  //         // Remove a dispesa que está na posição i
-  //         this.despesas.splice(i, 1);
-  //       }
-  //     }
-  //   }
-  // }
-
-  onDelete(descricao: string) {
+  onDelete(d: Despesa, id: string) {
     let confirmation = window.confirm(
-      'Você tem certeza que deseja remover ' + descricao
+      'Você tem certeza que deseja remover ' + id
     );
     if (!confirmation) {
       return;
     }
-    let response: boolean = this.despService.delete(descricao);
+    let response: boolean = this.despService.delete(d);
     this.isShowMessage = true;
     this.isSuccess = response;
     if (response) {

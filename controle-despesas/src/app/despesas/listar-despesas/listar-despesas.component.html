@@ -7,11 +7,11 @@
         <div
           id="msg-login"
           class="card-panel white-text"
-          [class.red]="!this.isSuccess"
-          [class.blue]="this.isSuccess"
-          *ngIf="this.isShowMessage"
+          [class.red]="!isSuccess"
+          [class.blue]="isSuccess"
+          *ngIf="isShowMessage"
         >
-          {{ this.message }}
+          {{ message }}
         </div>
       </div>
       <form class="col s12" #form="ngForm" (submit)="onSubmit()">
@@ -24,7 +24,7 @@
             name="input-descricao"
             type="text"
             class="validate"
-            [(ngModel)]="this.desp.descricao"              
+            [(ngModel)]="desp.descricao"              
             #descricao="ngModel"
             required
           />
@@ -41,7 +41,7 @@
             name="input-valor"
             type="text"
             class="validate"
-            [(ngModel)]="this.desp.valor"          
+            [(ngModel)]="desp.valor"          
             #valor="ngModel"
             required
           />
@@ -58,7 +58,7 @@
             name="input-vencimento"
             type="date"
             class="validate"
-            [(ngModel)]="this.desp.vencimento"
+            [(ngModel)]="desp.vencimento"
           />
           <label for="input-vencimento">Vencimento</label>
         </div>
@@ -103,7 +103,7 @@
             <a
               ><i
                 class="material-icons my-icon-size"
-                (click)="onDelete(d.descricao)"
+                (click)="onDelete(d , d.id)"
                 >delete</i
               ></a
             >

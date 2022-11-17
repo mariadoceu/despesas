@@ -1,11 +1,14 @@
 <main>
 <div class="container">
-    <div class="row top-nav ">        
-        <div class="col s12 m4 ">            
+    <div class="row top-nav ">  
+       
+      <h4 >Seja bem-vind@, {{user.name}} </h4>
+      <hr>
+        <div class="col s12 m4 ">           
             <div class="card hoverable">
                 <div class="card-image"> 
                 <!-- <img src="/assets/card-img-cadDespesas.png"> -->
-                <img [src]="card01" class="responsive-img">
+                <img src="/assets/card-img-cadDespesas.png">
                 <a routerLink="/despesas/cadastrar" class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
                 </div>
                 <div class="card-content">             
@@ -20,7 +23,7 @@
         <div class="col s12 m4">
         <div class="card hoverable">
           <div class="card-image">         
-              <img [src]="card02" class="responsive-img">
+            <img src="/assets/card-img-verDespesas.png">
             <a routerLink="/despesas/listar" class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
           </div>
           
@@ -35,7 +38,7 @@
       <div class="col s12 m4">
         <div class="card hoverable">
           <div class="card-image">
-              <img [src]="card03" class="responsive-img">
+            <img src="/assets/card-img-cadReceita.png">
               <a routerLink="/receitas/cadastrar-receitas" class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
           </div>
           <div class="card-content">

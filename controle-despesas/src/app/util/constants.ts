@@ -1,5 +1,7 @@
 export class Constants {
+  public static readonly USERS_LOGADO_KEY = 'user_logado';
   public static readonly USERS_KEY = 'users';
+  public static readonly DESPESAS_KEY = 'despesas';
   public static readonly USERNAME_KEY = 'root';
   public static readonly COSTS_KEY = 'costs';
   public static readonly LOGGED_IN_KEY = 'eh_logado';

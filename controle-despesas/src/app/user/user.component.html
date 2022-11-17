@@ -154,18 +154,18 @@
       <tr *ngFor="let u of users">
         <td>{{ u.name | titlecase }}</td>
         <td>{{ u.username | lowercase }}</td>
-        <td>{{ u!.cpf! | cpf }}</td>
+        <td>{{ u!.cpf! }}</td>
         <!-- <td>{{ u.balance | currency: "BRL" }}</td> -->
         <td class="right">
           <a
-            ><i class="material-icons my-icon-size" (click)="onEdit(u)"
+            ><i class="material-icons my-icon-size" (click)="onEdit(u, u.id)"
               >edit</i
             ></a
           >
           <a
             ><i
               class="material-icons my-icon-size"
-              (click)="onDelete(u.username)"
+              (click)="onDelete(u, u.id)"
               >delete</i
             ></a
           >

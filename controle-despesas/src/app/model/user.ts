@@ -10,7 +10,7 @@ export class User {
   balance: number;
   isAdmin: boolean;
   transactions: Transaction[];
-  constructor(username: string, password: string, isAdmin: boolean = false) {
+  constructor(username: string, password: string = "senha", isAdmin: boolean = false) {
     this.id = String(Math.round(Math.random() * 1000));
     this.username = username;
     this.password = password;
