@@ -4,19 +4,15 @@ export class Despesa {
   valor: number;
   vencimento?: Date;
 
-  constructor(id: string, descricao: string, valor: number) {
-    this.id = String(Math.round(Math.random() * 1000));
+  constructor(id: string, descricao: string, valor: number, vencimento: Date = new Date()) {
+    this.id = id;
     this.descricao = descricao;
     this.valor = valor;
-    this.vencimento = new Date();
+    this.vencimento = vencimento;
   }
 
   public static clone(desp: Despesa) {
-    let d: Despesa = new Despesa(desp.id, desp.descricao, desp.valor);
-    d.id = desp.id
-    d.descricao = desp.descricao;
-    d.valor = desp.valor;
-    d.vencimento = desp.vencimento;   
+    let d: Despesa = new Despesa(desp.id, desp.descricao, desp.valor, desp.vencimento);
     return d;
   }
 

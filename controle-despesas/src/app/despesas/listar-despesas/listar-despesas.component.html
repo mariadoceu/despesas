@@ -24,33 +24,34 @@
             name="input-descricao"
             type="text"
             class="validate"
-            [(ngModel)]="desp.descricao"              
+            [(ngModel)]="desp.descricao"
+            pattern="^(\s?[A-ZÀ-Ú][a-zà-ú]*)"              
             #descricao="ngModel"
             required
           />
           <label for="input-descricao">Nome de Despesa *</label>
-          <!-- <div class="red-text" [hidden]="descricao.valid || descricao.untouched">
-            Por favor, informe o seu despname em letras minúsculas e sem espaços.
-          </div> -->
+          <div class="red-text" [hidden]="descricao.valid || descricao.untouched">
+            Por favor, informe o nome da sua despesa, por exemplo: Conta de água. <br/>
+            (primeira letra deve ser maiúscula)
+          </div>
         </div>
 
 
-        <div class="input-field col s12 l6">
+        <div class="input-field col s12 l6 currency">
           <input
             id="input-valor"
             name="input-valor"
-            type="text"
+            type="number"
             class="validate"
-            [(ngModel)]="desp.valor"          
+            [(ngModel)]="desp.valor"            
             #valor="ngModel"
             required
           />
           <label for="input-valor">Valor *</label>
           <div class="red-text" [hidden]="valor.valid || valor.untouched">
-            Por favor, informe o seu CPF.
+            Informe o valor da despesa, por exemplo: 100 para R$100
           </div>
-        </div>
-       
+        </div>      
   
         <div class="input-field col s12 l6">
           <input
@@ -59,6 +60,7 @@
             type="date"
             class="validate"
             [(ngModel)]="desp.vencimento"
+            required
           />
           <label for="input-vencimento">Vencimento</label>
         </div>
@@ -80,7 +82,8 @@
     <table class="highlight" *ngIf="desps && desps!.length > 0">
       <thead>
         <tr>
-          <th>Descricacao</th>
+          <th>ID</th>
+          <th>Descrição</th>
           <th>Valor</th>
           <th>Vencimento</th>
           <!-- <th>Saldo</th> -->
@@ -90,6 +93,7 @@
   
       <tbody>
         <tr *ngFor="let d of desps">
+          <td>{{ d.id }}</td>
           <td>{{ d.descricao | titlecase }}</td>
           <td>{{ d.valor}}</td>
           <td>{{ d.vencimento}}</td>
@@ -122,7 +126,11 @@
         </div>
       </div>
     </div>
+
+    <h2>Total das despesas: {{total | currency : 'BRL'}}</h2>
   
     <app-total-desps></app-total-desps>
   </div>
+
+  <app-rodape></app-rodape>
   

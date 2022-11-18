@@ -6,6 +6,8 @@ import { NgForm } from '@angular/forms';
 
 import { DespesaStorageService } from './listar-despesas-storage.service';
 import { Shared } from 'src/app/util/shared';
+// import uuid
+import { v4 as uuidv4 } from 'uuid';
 
 @Component({
   selector: 'app-listar-despesas',
@@ -22,10 +24,11 @@ export class ListarDespesasComponent implements OnInit {
   desps?: Despesa[];
 
   descricao!: string;
-  valor!: string;
+  valor!: number;
   vencimento!:Data;
- 
 
+  total: number = 0;
+ 
   isSubmitted!: boolean;
   isShowMessage: boolean = false;
   isSuccess!: boolean;
@@ -34,10 +37,22 @@ export class ListarDespesasComponent implements OnInit {
   constructor(private despService: DespesaStorageService) {      
   }
   
-  ngOnInit(): void {
+  updateTotal(){
+    this.total = 0;
+    this.desps?.forEach(d => {
+      this.total = this.total+d.valor;      
+    });
+  }
+    
+    ngOnInit(): void {
     Shared.initializeWebStorage();
-    this.desp = new Despesa('', '', 0);
+    let ID_UNICO = uuidv4();
+    this.desp = new Despesa(ID_UNICO, '', 0);
     this.desps = this.despService.getDespesa();
+    
+    //soma  
+    this.updateTotal();
+  
   }
 
   onEdit(desp: Despesa) {
@@ -47,11 +62,14 @@ export class ListarDespesasComponent implements OnInit {
 
   onSubmit() {
     this.isSubmitted = true;
-    if (!this.despService.isExist(this.desp.descricao)) {
+    if (!this.despService.isExist(this.desp)) {
       this.despService.save(this.desp);
+      console.log("NOVA: " + this.desp.descricao);
     } else {
       this.despService.update(this.desp);
+      console.log("Atualiza: " + this.desp.descricao);
     }
+
     this.isShowMessage = true;
     this.isSuccess = true;
     this.message = 'Cadastro realizado com sucesso!';
@@ -59,11 +77,13 @@ export class ListarDespesasComponent implements OnInit {
     this.desp = new Despesa('','', 0);
     this.desps = this.despService.getDespesa();
     this.despService.notifyTotalUsers();
+    this.desp.id = uuidv4();
+    this.updateTotal();
   }
 
   onDelete(d: Despesa, id: string) {
     let confirmation = window.confirm(
-      'Você tem certeza que deseja remover ' + id
+      'Você tem certeza que deseja remover ' + d.descricao
     );
     if (!confirmation) {
       return;
@@ -78,6 +98,8 @@ export class ListarDespesasComponent implements OnInit {
     }
     this.desps = this.despService.getDespesa();
     this.despService.notifyTotalUsers();
+    this.desp.id = uuidv4();
+    this.updateTotal();
   }
 
 
