@@ -3,6 +3,9 @@
        margin-top: 20px;
 }
 
+.txtUsuarioLogado {
+  color: #7749F8;
+}
 
 
 ul {
@@ -54,8 +57,17 @@ ul {
     font-style: normal;
     font-weight: 400;
     font-size: 28px;
+    color: #00574C;
   }
   
+
+  h2 {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;    
+    color: #00574C;
+ }
 
     
   @media (max-width: 600px) {

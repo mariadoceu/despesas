@@ -1,6 +1,7 @@
 <div class="container contact">
     <h1>Faça login</h1>
     <h2>Entre com os seus dados para autenticar</h2>
+    <h3>(Para acessar as áreas logadas a primeira vez, entre com usuário <strong>root</strong> e senha <strong>root</strong>)</h3>
 
     <div class="container">
     <div class="row">
@@ -11,7 +12,7 @@
           style="display: none"
         ></div>
       </div>
-      <form class="col s12" (ngSubmit)="onLogin()">
+      <form class="col s12" (ngSubmit)="onLogin()"  #form="ngForm">
         <div class="row">
           <div class="input-field col s12">
             <input
@@ -29,6 +30,7 @@
             <input
               id="input-password"
               name="input-password"
+              required
               type="password"
               class="validate"
               [(ngModel)]="this.loginUser.password"
@@ -36,7 +38,7 @@
             <label for="input-password">Senha</label>
           </div>
         </div>
-        <button class="btn waves-effect waves-light amber darken-4" type="submit">
+        <button class="btn waves-effect waves-light amber darken-4" type="submit"  [disabled]="!form.valid">
           Enviar
           <i class="material-icons right">send</i>
         </button>
@@ -44,4 +46,6 @@
     </div>
 </div>
   </div>
+
+  <app-rodape></app-rodape>
   

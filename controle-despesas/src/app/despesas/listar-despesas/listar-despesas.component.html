@@ -1,7 +1,9 @@
 <div class="container contact">
     <h1>Administração de Despesas</h1>
     <h2>Nesta página, podemos fazer a administração dos despesas. Incluir, editar, excluir...</h2>
-  
+    <p class="roxo">(Página desenvolvida para entrega da ATIVIDADE 11, onde seria necessária a criação de uma Classe no Web Storage
+      e validar campos de formulário e botão de submit.)
+    </p>
     <div class="row">
       <div class="col s12">
         <div
@@ -15,7 +17,7 @@
         </div>
       </div>
       <form class="col s12" #form="ngForm" (submit)="onSubmit()">
-        <p>Preencha os campos abaixo para cadastrar um novo despesa</p>
+        <H2>Preencha os campos abaixo para cadastrar um novo despesa</H2>
         
   
         <div class="input-field col s12">
@@ -25,7 +27,7 @@
             type="text"
             class="validate"
             [(ngModel)]="desp.descricao"
-            pattern="^(\s?[A-ZÀ-Ú][a-zà-ú]*)"              
+            pattern="^(\s?[A-ZÀ-Ú][a-zà-ú]*)+(\s[a-zà-ú]*)?(\s[A-ZÀ-Ú,a-zà-ú]*)+)"              
             #descricao="ngModel"
             required
           />
@@ -39,21 +41,23 @@
 
         <div class="input-field col s12 l6 currency">
           <input
-            id="input-valor"
+            id="input-valor"        
             name="input-valor"
             type="number"
             class="validate"
             [(ngModel)]="desp.valor"            
-            #valor="ngModel"
-            required
+            #valor="ngModel"          
+            value=""
+            required            
           />
-          <label for="input-valor">Valor *</label>
+          
+          <label for="input-valor">Valor da despesa*</label>
           <div class="red-text" [hidden]="valor.valid || valor.untouched">
             Informe o valor da despesa, por exemplo: 100 para R$100
           </div>
         </div>      
   
-        <div class="input-field col s12 l6">
+        <div class="input-field col s12 l6 ">
           <input
             id="input-vencimento"
             name="input-vencimento"
@@ -82,7 +86,7 @@
     <table class="highlight" *ngIf="desps && desps!.length > 0">
       <thead>
         <tr>
-          <th>ID</th>
+         
           <th>Descrição</th>
           <th>Valor</th>
           <th>Vencimento</th>
@@ -93,9 +97,9 @@
   
       <tbody>
         <tr *ngFor="let d of desps">
-          <td>{{ d.id }}</td>
+         
           <td>{{ d.descricao | titlecase }}</td>
-          <td>{{ d.valor}}</td>
+          <td>{{ d.valor | currency: "BRL" }}</td>
           <td>{{ d.vencimento}}</td>
           <!-- <td>{{ u.balance | currency: "BRL" }}</td> -->
           <td class="right">
@@ -130,6 +134,9 @@
     <h2>Total das despesas: {{total | currency : 'BRL'}}</h2>
   
     <app-total-desps></app-total-desps>
+    <div class="row">
+      <button mat-fab color color="warn" class="right" onclick="window.history.go(-1);">Voltar</button>
+  </div>
   </div>
 
   <app-rodape></app-rodape>

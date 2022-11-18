@@ -47,7 +47,7 @@ export class ListarDespesasComponent implements OnInit {
     ngOnInit(): void {
     Shared.initializeWebStorage();
     let ID_UNICO = uuidv4();
-    this.desp = new Despesa(ID_UNICO, '', 0);
+    this.desp = new Despesa(ID_UNICO, '');
     this.desps = this.despService.getDespesa();
     
     //soma  
@@ -74,7 +74,7 @@ export class ListarDespesasComponent implements OnInit {
     this.isSuccess = true;
     this.message = 'Cadastro realizado com sucesso!';
     this.form.reset();
-    this.desp = new Despesa('','', 0);
+    this.desp = new Despesa('','');
     this.desps = this.despService.getDespesa();
     this.despService.notifyTotalUsers();
     this.desp.id = uuidv4();

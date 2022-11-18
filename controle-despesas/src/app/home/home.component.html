@@ -2,14 +2,14 @@
 <div class="container">
     <div class="row top-nav ">  
        
-      <h4 >Seja bem-vind@, {{user.name}} </h4>
-      <hr>
+      <h2>Seja bem-vind@<span class="txtUsuarioLogado">, {{user.name}}</span> </h2>
+     
         <div class="col s12 m4 ">           
             <div class="card hoverable">
                 <div class="card-image"> 
                 <!-- <img src="/assets/card-img-cadDespesas.png"> -->
                 <img src="/assets/card-img-cadDespesas.png">
-                <a routerLink="/despesas/cadastrar" class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+                <a routerLink="/despesas/listar" class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
                 </div>
                 <div class="card-content">             
                 <p><b>Cadastrar todas as despesas</b><br />

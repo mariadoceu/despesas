@@ -38,26 +38,28 @@ import { RodapeComponent } from './rodape/rodape.component';
 const routes: Routes = [
 
   {path: '', component: HomeComponent},
+  
   {path: 'home', component: HomeComponent},
   {path: 'sobre', component: SobreComponent},
   {path: 'login' , component: LoginComponent},
 
   //Login
-  { path: 'login', component: LoginComponent },
+  { path: 'login', component: LoginComponent, },
 
-  //Cadastro de usuário
+  // Cadastro de usuário
   {path: 'usuarios', component: UserComponent,
     canActivate: [AuthenticationGuard],
   },
-
   
   // Despesas
-  {path: 'despesas/listar', component: ListarDespesasComponent},
+  {path: 'despesas/listar', component: ListarDespesasComponent,
+  canActivate: [AuthenticationGuard],  
+  },
+  
   {path: 'despesas/editar/:descricao/:valor/:vencimento', component: EditarDespesaComponent},
   {path: 'despesas/cadastrar', component: CadastrarDespesaComponent},
   
-  // Receitas
-  {path: 'receitas/listar-receitas', component: ListarReceitasComponent},
+  {path: 'receitas/listar-receitas', component: ListarReceitasComponent}, 
   {path: 'receitas/cadastrar-receitas', component: CadastrarReceitasComponent},
   {path: 'receitas/editar/:descricao/:valor', component: EditarReceitasComponent},
   
