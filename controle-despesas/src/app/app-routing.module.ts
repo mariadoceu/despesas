@@ -1,3 +1,4 @@
+import { User } from './model/user';
 
 //Usuarios
 import { UserComponent } from './user/user.component';
