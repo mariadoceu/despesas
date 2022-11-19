@@ -17,5 +17,7 @@ export class TopoComponent implements OnInit {
 
   }
   
+  public titulo: string = "Gestão de depesas";
+  public descricao: string = "Sistema para gestão de despesas domésticas";
 
 }
