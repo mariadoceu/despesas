@@ -1,0 +1,31 @@
+
+    <div class="topo">
+        <h1 class="textoTopo1">{{ titulo }}</h1>
+        <h2 class="">Sistema para gestão de despesas domésticas</h2>
+        
+
+        <nav>
+            <div class="nav-wrapper">
+                <div class="container">
+                    <!-- <a href="#" class="brand-logo right"><img src="/assets/logo.png" class="logo img-fluid"/></a> -->
+                    <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i
+                            class="material-icons">menu</i></a>
+                    <ul class="left hide-on-med-and-down">
+                        <li><a routerLink="/home">HOME</a></li>
+                        <li><a routerLink="/despesas/listar">DESPESAS</a></li>                        
+                        <li><a routerLink="/receitas/listar-receitas">RECEITAS</a></li>
+                        <li><a routerLink="/usuarios">USUARIOS</a></li>
+                        <li><a routerLink="/sobre">SOBRE</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <ul class="sidenav" id="mobile-demo" #mobile>
+        <li><a routerLink="/home">HOME</a></li>
+        <li><a routerLink="/despesas/listar">DESPESAS</a></li>
+        <li><a routerLink="/receitas/listar-receitas">RECEITAS</a></li>
+        <li><a routerLink="/usuarios">USUARIOS</a></li>
+        <li><a routerLink="/sobre">SOBRE</a></li>
+    </ul>
