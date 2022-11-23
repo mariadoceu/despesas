@@ -1,0 +1,29 @@
+{
+    "receitas": [
+      {
+        "id": "3464ed9f-6308-4c5b-96d2-d2e2d18c7959",
+        "descricao": "Salario Rodney",
+        "valor": 2000
+      },
+      {
+        "id": "7632c917-ebc8-4dfd-b4af-79951c175cbc",
+        "descricao": "Alugueis",
+        "valor": 3000
+      },
+      {
+        "id": "e16dfd8a-03a2-42fc-8c6c-4368482b954a",
+        "descricao": "Salario Maria",
+        "valor": 2000
+      },
+      {
+        "id": "6c1b38b4-247c-4e48-a6cc-4a92c842ee71",
+        "descricao": "Rendimento Poupança",
+        "valor": 100
+      },
+      {
+        "id": "b8e66167-f040-4384-91bc-577cdbbaa955",
+        "descricao": "Pensao",
+        "valor": 1000
+      }
+    ]
+}

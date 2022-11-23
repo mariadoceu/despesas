@@ -7,7 +7,7 @@ import { Input } from '@angular/core';
   styleUrls: ['./receita-model-item.component.css']
 })
 export class ReceitaModelItemComponent implements OnInit {
-  @Input() receita!: { descricao: any; valor:any;}
+  @Input() receita!: { id: any, descricao: any; valor:any;}
 
   constructor() { }
 

@@ -1,0 +1,14 @@
+{
+  "receitas": [
+    {
+      "id": "da84e854-ea48-4cf8-a079-8bd0b08351f3",
+      "descricao": "Aluguel",
+      "valor": "450"
+    },
+    {
+      "id": "e3316873-1bc2-43e8-8868-95d9535c6ede",
+      "descricao": "Salario Maria",
+      "valor": "1000"
+    }
+  ]
+}

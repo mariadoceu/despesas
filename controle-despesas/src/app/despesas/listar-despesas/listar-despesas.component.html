@@ -96,8 +96,7 @@
       </thead>
   
       <tbody>
-        <tr *ngFor="let d of desps">
-         
+        <tr *ngFor="let d of desps">         
           <td>{{ d.descricao | titlecase }}</td>
           <td>{{ d.valor | currency: "BRL" }}</td>
           <td>{{ d.vencimento}}</td>

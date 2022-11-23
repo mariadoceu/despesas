@@ -1,31 +1,38 @@
 <div class="container">
-    
-    <h1>Cadastrar nova receita</h1>
-    <h2>Nesta página, podemos cadastrar as novas receitas preenchendo o formulário e clicando no botão cadastrar.</h2>
-          <p style="color: red;">(O cadastro não funciona, apenas para atividade 9, usando a passagem de parâmetro)</p>
-  
-    <div class="container">
-      <form>
-            <mat-form-field class="example-full-width" appearance="fill">
-              <mat-label>Descrição da receita: </mat-label>
-              <input matInput placeholder="Ex. Plano de saúde" value="{{this.descricao}}">
-            </mat-form-field>
 
-            <mat-form-field class="example-full-width" appearance="fill">
-                <mat-label>Valor: </mat-label>
-                <input matInput placeholder="Ex. 39.5" value="{{this.valor}}" type="number">
-              </mat-form-field>
+  <h1>Cadastrar nova receita</h1>
+  <h2>Nesta página, podemos cadastrar as novas receitas preenchendo o formulário e clicando no botão cadastrar.</h2>
+  <p style="color: red;">(O cadastro não funciona, apenas para atividade 9, usando a passagem de parâmetro)</p>
 
-                <button mat-raised-button class="bt-cancelar" style="margin-right: 10px;">Cancelar</button>
-                <button mat-raised-button class="bt-salvar" >Cadastrar</button>
-      
-      </form>
-      
-    </div>      
-    <div class="row">
-      <button mat-fab color color="warn" class="right" onclick="window.history.go(-1);">Voltar</button>
-    </div>
+  <div class="container">
+    <form #form="ngForm">
+      <h4>ID da receita: {{receita.id}}</h4>
+      <hr>
+      <h4>Descrição da receita: </h4>
+      <input [(ngModel)]="receita.descricao" name="descricao" placeholder="Ex. Plano de saúde">
+      <hr>
+      <h4>Valor da receita: </h4>
+      <input [(ngModel)]="receita.valor" name="valor"placeholder="Ex. 39.5">
+
+    </form>
+
+  </div>
+
+  <div>
+    <!-- Criar uma tabela com 4 colunas-->
+    <table class="table">
+      <tbody>
+        <tr>
+          <td><button mat-raised-button (click)="voltar()" class="bt-cancelar">Listar Receitas</button></td>
+          <td><button mat-raised-button class="bt-salvar" (click)="cadastrar()">Cadastrar Receita</button></td>
+          <td><button mat-raised-button class="bt-editar" (click)="atualizar(receita.id)">Atualizar Receita</button></td>
+          <td><button mat-raised-button class="bt-excluir" (click)="excluir(receita.id)">Excluir Receita</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="row">
+    <button mat-fab color color="warn" class="right" onclick="window.history.go(-1);">Voltar</button>
+  </div>
 </div>
-
-
-
