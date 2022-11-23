@@ -15,7 +15,6 @@ import { EditarDespesaComponent } from './despesas/editar-despesa/editar-despesa
 // Receitas
 import { CadastrarReceitasComponent } from './receitas/cadastrar-receitas/cadastrar-receitas.component';
 import { ListarReceitasComponent } from './receitas/listar-receitas/listar-receitas.component';
-import { EditarReceitasComponent } from './receitas/editar-receitas/editar-receitas.component';
 
 // Outras páginas
 import { HomeComponent } from './home/home.component';
@@ -56,13 +55,11 @@ const routes: Routes = [
   {path: 'despesas/listar', component: ListarDespesasComponent,
   canActivate: [AuthenticationGuard],  
   },
-  
   {path: 'despesas/editar/:descricao/:valor/:vencimento', component: EditarDespesaComponent},
   {path: 'despesas/cadastrar', component: CadastrarDespesaComponent},
-  
+  // Receitas
   {path: 'receitas/listar-receitas', component: ListarReceitasComponent}, 
-  {path: 'receitas/cadastrar-receitas', component: CadastrarReceitasComponent},
-  {path: 'receitas/editar/:descricao/:valor', component: EditarReceitasComponent},
+  {path: 'receitas/add-or-update/:id', component: CadastrarReceitasComponent},
   
   
   // 404

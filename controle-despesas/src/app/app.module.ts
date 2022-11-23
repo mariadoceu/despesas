@@ -35,7 +35,6 @@ import { CadastrarDespesaComponent } from './despesas/cadastrar-despesa/cadastra
 // Receitas
 import { CadastrarReceitasComponent } from './receitas/cadastrar-receitas/cadastrar-receitas.component';
 import { ListarReceitasComponent } from './receitas/listar-receitas/listar-receitas.component';
-import { EditarReceitasComponent } from './receitas/editar-receitas/editar-receitas.component';
 import { ReceitaModelItemComponent } from './receitas/receita-model-item/receita-model-item.component';
 import { UserComponent } from './user/user.component';
 import { TotalUsersComponent } from './user/total-users/total-users.component';
@@ -59,7 +58,6 @@ import { NotauthorizedComponent } from './notauthorized/notauthorized.component'
     CadastrarDespesaComponent,
     CadastrarReceitasComponent,
     ListarReceitasComponent,
-    EditarReceitasComponent,
     ReceitaModelItemComponent,
     UserComponent,
     TotalUsersComponent,
