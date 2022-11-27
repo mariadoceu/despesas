@@ -3,20 +3,36 @@ import { ActivatedRoute } from '@angular/router';
 import { ReceitaService} from '../../service/receita.service';
 import { Receita } from '../../model/receita.model';
 import { v4 as uuidv4 } from 'uuid';
+import { LoginService } from 'src/app/service/login.service';
+import { User } from 'src/app/model/user';
+import { Subscription } from 'rxjs';
+import { Constants } from 'src/app/util/constants';
+import { WebStorageUtil } from 'src/app/util/web-storage-util';
 @Component({
   selector: 'app-cadastrar-receitas',
   templateUrl: './cadastrar-receitas.component.html',
   styleUrls: ['./cadastrar-receitas.component.css']
 })
 export class CadastrarReceitasComponent implements OnInit {
+  user: User;
+  loggedIn = false;
+  subscription!: Subscription;
+  
   public ID_UNICO: string = uuidv4();
   public receita: Receita = new Receita("","",0);
   public receitas: Receita[] = [];
-  constructor(public route: ActivatedRoute, private _receitaService: ReceitaService) {    
+  constructor(public route: ActivatedRoute, private _receitaService: ReceitaService, 
+  private loginService: LoginService) {    
+    this.user = WebStorageUtil.get(Constants.USERS_LOGADO_KEY);
+    this.subscription = loginService.asObservable().subscribe((data) => {
+      this.loggedIn = data;    
+    });
   }
 
   ngOnInit(): void {
       const id = String(this.route.snapshot.paramMap.get('id'));
+      this.loggedIn = WebStorageUtil.get(Constants.LOGGED_IN_KEY) as boolean;
+      this.user = WebStorageUtil.get(Constants.USERS_LOGADO_KEY);
       console.log("ID recebido: " + id);
       console.log("Tipo da var: " + typeof(id));
       if (id == "NEW"){
@@ -24,6 +40,7 @@ export class CadastrarReceitasComponent implements OnInit {
       }else{
         this.listarReceitas(id)
       }
+     
   }
   listarReceitas(id: string){
     this._receitaService.getReceitas()
@@ -128,5 +145,11 @@ export class CadastrarReceitasComponent implements OnInit {
   voltar(){
     window.location.href = "/receitas/listar-receitas";
   }
+
+  onLogout() {
+    //this.loggedIn = false;
+    this.loginService.logout();
+  }
+
 
 }

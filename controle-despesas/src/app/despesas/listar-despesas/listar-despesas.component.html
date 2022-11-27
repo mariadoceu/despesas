@@ -100,13 +100,9 @@
           <td>{{ d.descricao | titlecase }}</td>
           <td>{{ d.valor | currency: "BRL" }}</td>
           <td>{{ d.vencimento}}</td>
-          <!-- <td>{{ u.balance | currency: "BRL" }}</td> -->
           <td class="right">
             <a
-              ><i class="material-icons my-icon-size" (click)="onEdit(d)"
-                >edit</i
-              ></a
-            >
+              ><i class="material-icons my-icon-size" (click)="onEdit(d)">edit</i></a>
             <a
               ><i
                 class="material-icons my-icon-size"

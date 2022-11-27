@@ -6,6 +6,9 @@ mat-grid-tile {
   background: lightblue;
 }
 
+#id{
+  display: none;
+}
   button {
     margin-right: 8px;
   }

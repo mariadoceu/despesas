@@ -1,7 +1,9 @@
-ID: {{receita.id}}
+
+
+ <span class="hidden">ID: {{receita.id}}   </span>
 <br>
 Descrição: {{receita.descricao}}
 <br>
-Valor: {{receita.valor}}
+Valor: {{receita.valor | currency: "BRL" }}
 <br>
 
