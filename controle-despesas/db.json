@@ -9,6 +9,16 @@
       "id": "e3316873-1bc2-43e8-8868-95d9535c6ede",
       "descricao": "Salario Maria",
       "valor": "1000"
+    },
+    {
+      "id": "122315ff-9434-4522-ae67-999368207168",
+      "descricao": "Recebimento pensão",
+      "valor": "1000"
+    },
+    {
+      "id": "8ff01c19-527e-4523-b5d4-d98a2da9f59e",
+      "descricao": "Salário Letícia",
+      "valor": "1.000"
     }
   ]
 }

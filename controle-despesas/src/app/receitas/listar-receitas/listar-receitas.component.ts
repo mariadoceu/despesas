@@ -3,6 +3,12 @@ import { EventEmitter, Input, Output } from '@angular/core';
 import { Data, Router } from '@angular/router';
 import { ReceitaService} from '../../service/receita.service';
 import { Receita } from '../../model/receita.model';
+import { LoginService } from 'src/app/service/login.service';
+import { User } from 'src/app/model/user';
+import { Subscription } from 'rxjs';
+import { WebStorageUtil } from 'src/app/util/web-storage-util';
+import { Constants } from 'src/app/util/constants';
+
 // Modelo da classe Receita
 @Component({
   selector: 'app-listar-receitas',
@@ -10,13 +16,19 @@ import { Receita } from '../../model/receita.model';
   styleUrls: ['./listar-receitas.component.css']
 })
 export class ListarReceitasComponent implements OnInit {
-  
+  user!: User;
+  loggedIn = false;
+  subscription!: Subscription;
   descricao!: string;
   valor!: string;
   public receitas: Receita[] = [];
   
-  constructor(public router: Router, private _receitaService: ReceitaService) {
+  constructor(public router: Router, private _receitaService: ReceitaService, private loginService: LoginService) {
     this.listarReceitas();
+    this.user = WebStorageUtil.get(Constants.USERS_LOGADO_KEY);
+    this.subscription = loginService.asObservable().subscribe((data) => {
+      this.loggedIn = data;
+    });
   }
   
   listarReceitas(){
@@ -126,6 +138,9 @@ export class ListarReceitasComponent implements OnInit {
 
 
   ngOnInit(): void {
+    this.loggedIn = WebStorageUtil.get(Constants.LOGGED_IN_KEY) as boolean;
+    this.user = WebStorageUtil.get(Constants.USERS_LOGADO_KEY);
+   
   }
 
 }
