@@ -33,3 +33,6 @@ chrome-profiler-events*.json
 /connect.lock
 /coverage
 /lib
+
+
+/.angular
