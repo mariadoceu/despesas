@@ -1,0 +1,25 @@
+h1 {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 30px;
+    color: #FB9702;
+    }
+
+    h2 {
+      font-family: 'Roboto';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 20px;    
+      color: #00574C;
+   }
+
+   h3{
+    font-weight: 400;
+    font-size: 20px;    
+    color: #160057;
+ }
+
+   .container {
+    margin-top: 20px;;
+   }

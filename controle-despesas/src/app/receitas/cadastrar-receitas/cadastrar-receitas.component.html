@@ -1,0 +1,47 @@
+<div class="container">
+
+  <h1>Cadastrar nova receita</h1>
+  <h2>Nesta página, podemos cadastrar as novas receitas preenchendo o formulário e clicando no botão cadastrar.</h2>
+  <p style="color: red;">(Atividade 13 - As despesas só aparecem para usuários logados)</p>
+
+  <ng-template #userLoggedOut>
+    <div>
+      Por favor, faça o login.
+    </div>
+  </ng-template>
+  
+
+  <ng-template [ngIf]="this.loggedIn" [ngIfElse]="userLoggedOut">
+    
+  <div class="container">
+    <form #form="ngForm">
+      <h4>ID da receita: {{receita.id}}</h4>
+      <hr>
+      <h4>Descrição da receita: </h4>
+      <input [(ngModel)]="receita.descricao" name="descricao" placeholder="Ex. Plano de saúde">    
+      <h4>Valor da receita: </h4>
+      <input [(ngModel)]="receita.valor" name="valor"placeholder="Ex. 39.5">
+
+    </form>
+
+  </div>
+
+  <div>
+  
+    <table class="table">
+      <tbody>
+        <tr>
+          <td><button mat-raised-button (click)="voltar()" class="bt-cancelar">Listar Receitas</button></td>
+          <td><button mat-raised-button class="bt-salvar" (click)="cadastrar()">Cadastrar Receita</button></td>
+          <td><button mat-raised-button class="bt-editar" (click)="atualizar(receita.id)">Atualizar Receita</button></td>
+          <td><button mat-raised-button class="bt-excluir" (click)="excluir(receita.id)">Excluir Receita</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</ng-template>
+
+  <div class="row">
+    <button mat-fab color color="warn" class="right" onclick="window.history.go(-1);">Voltar</button>
+  </div>
+</div>

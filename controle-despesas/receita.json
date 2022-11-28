@@ -1,0 +1,29 @@
+{
+    "receita": [
+      {
+        "id": 1,
+        "descricao": "Salario Rodney",
+        "valor": 2000
+      },
+      {
+        "id": 2,
+        "descricao": "Alugueis",
+        "valor": 3000
+      },
+      {
+        "id": 3,
+        "descricao": "Salario Maria",
+        "valor": 2000
+      },
+      {
+        "id": 4,
+        "descricao": "Rendimento Poupança",
+        "valor": 100
+      },
+      {
+        "id": 5,
+        "descricao": "Pensao",
+        "valor": 1000
+      }
+    ]
+}

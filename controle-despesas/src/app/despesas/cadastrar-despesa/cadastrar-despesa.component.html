@@ -1,0 +1,37 @@
+<div class="container">
+    
+      <h1>Cadastrar nova despesa</h1>
+      <h2>Nesta página, podemos cadastrar as novas depesas preenchendo o formulário e clicando no botão salvar.</h2>
+            <p style="color: red;">(O cadastro ainda não funciona, apenas para fins de estudo)</p>
+    
+      <div class="container">
+        <form>
+              <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Descrição: </mat-label>
+                <input matInput placeholder="Ex. Plano de saúde" value="{{this.descricao}}">
+              </mat-form-field>
+
+              <mat-form-field class="example-full-width" appearance="fill">
+                  <mat-label>Valor: </mat-label>
+                  <input matInput placeholder="Ex. 39.5" value="{{this.valor}}" type="number">
+                </mat-form-field>
+
+                <mat-form-field class="example-full-width" appearance="fill">
+                  <mat-label>Vencimento: </mat-label>
+                  <input matInput placeholder="Ex. 10/12/2022" value="{{this.vencimento}}">
+                </mat-form-field>
+
+                  <button mat-raised-button class="bt-cancelar" style="margin-right: 10px;">Cancelar</button>
+                  <button mat-raised-button class="bt-salvar" >Cadastrar</button>
+        
+        </form>
+        
+      </div>      
+      <div class="row">
+        <button mat-fab color color="warn" class="right" onclick="window.history.go(-1);">Voltar</button>
+      </div>
+</div>
+<app-rodape></app-rodape>
+
+
+
