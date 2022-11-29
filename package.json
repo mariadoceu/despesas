@@ -1,6 +1,7 @@
 {
   "name": "despesas",
   "version": "0.0.0",
+  "homepage": "https://mariadoceu.github.io/despesas/",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
