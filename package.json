@@ -6,7 +6,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build --base-href=/despesas/",
-    "ghpages": "angular-cli-ghpages --dir=dist/despesas",
+    "ghpages": "angular-cli-ghpages --dir=dist/despesas --repo=https://github.com/mariadoceu/despesas.git",
     "deploy": "npm run build & npm run ghpages",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",

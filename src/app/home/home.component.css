@@ -21,7 +21,7 @@ ul {
   
   .topo {  
     background-color:#82CAC9;
-    background-image: url("/assets/logo.png");
+    background-image: url("assets/logo.png");
     background-repeat: no-repeat;  
     background-position: right 20px top 20px;
     background-size: auto 120%;  
