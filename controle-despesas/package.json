@@ -1,10 +1,10 @@
 {
-  "name": "controle-despesas",
+  "name": "despesas",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build --base-href=/controle-despesas/",
+    "build": "ng build --base-href=/despesas/",
     "ghpages": "angular-cli-ghpages --dir=dist/despesas",
     "deploy": "npm run build & npm run ghpages",
     "watch": "ng build --watch --configuration development",
