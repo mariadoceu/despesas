@@ -15,11 +15,7 @@ nav {
 
 
 .topo {  
-  background-color:#82CAC9;
-  background-image: url("/assets/logo.png");
-  background-repeat: no-repeat;  
-  background-position: right 20px top 20px;
-  background-size: auto 120%;  
+  background-color:#82CAC9;  
   padding: 50px 0px 0px 10px;
 
 }
@@ -63,6 +59,19 @@ h3{
   color: orangered;
   margin-left: 40px;
 }
+.brand-logo {
+  margin-top: -150px;
+  z-index: 1;
+}
+
+.txtUsuarioLogado {
+margin-top: 20px;
+}
+
+img  {
+  width: 85%;
+ }
+    
 
 
 @media (max-width: 600px) {
