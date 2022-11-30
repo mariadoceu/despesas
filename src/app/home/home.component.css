@@ -1,7 +1,5 @@
 
-.container {
-       margin-top: 20px;
-}
+
 
 .txtUsuarioLogado {
   color: #7749F8;
@@ -13,22 +11,10 @@ ul {
     font-size: 20px;
   }
   
-  nav {
-    background-color: transparent;
-    box-shadow: none;
-  }
-  
-  
-  .topo {  
-    background-color:#82CAC9;
-    background-image: url("/assets/logo.png");
-    background-repeat: no-repeat;  
-    background-position: right 20px top 20px;
-    background-size: auto 120%;  
-    padding: 50px 0px 0px 10px;
-  
-  }
-  
+
+ .container {
+  margin-top: 50px;
+ }
   
   .topo h1 {
     margin-top: 0;
@@ -69,7 +55,16 @@ ul {
     color: #00574C;
  }
 
-    
+p a {
+  text-decoration: none;
+  color: black;
+}
+
+p a:hover {
+  text-decoration: underline;
+  color: black;
+}
+
   @media (max-width: 600px) {
     .topo {      
       background-color:#82CAC9;
@@ -87,6 +82,7 @@ ul {
 
        .container {
         margin-bottom: auto;
+        margin-top: 20px;
        } 
 
   }

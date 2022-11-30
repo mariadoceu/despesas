@@ -43,7 +43,7 @@ export class TopoComponent implements OnInit , AfterViewInit {
     this.subscription.unsubscribe();
   }
   
-  public titulo: string = "Gestão de depesas";
+  public titulo: string = "Gestão de despesas";
   public descricao: string = "Sistema para gestão de despesas domésticas";
 
 }
