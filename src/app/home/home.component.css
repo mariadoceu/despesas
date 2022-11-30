@@ -12,7 +12,9 @@ ul {
   }
   
 
- 
+ .container {
+  margin-top: 50px;
+ }
   
   .topo h1 {
     margin-top: 0;
@@ -72,6 +74,7 @@ ul {
 
        .container {
         margin-bottom: auto;
+        margin-top: 20px;
        } 
 
   }
