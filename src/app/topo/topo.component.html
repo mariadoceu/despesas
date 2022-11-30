@@ -1,13 +1,13 @@
 
     <div class="topo">
         <h1 class="textoTopo1">{{ titulo }}</h1>
-        <h2 class="">Sistema para gestão de despesas domésticas</h2>
+        <h2>Sistema para gestão de despesas domésticas</h2>
         
         <!-- logado -->
         <nav>
             <div class="nav-wrapper">
                 <div class="container" >
-                    <!-- <a href="#" class="brand-logo right"><img src="/assets/logo.png" class="logo img-fluid"/></a> -->
+                    <a href="#" class="brand-logo right"><img src="assets/logo.png" class="logo img-fluid"/></a>
                     <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i
                             class="material-icons">menu</i></a>
                     <ul class="left hide-on-med-and-down">
@@ -28,9 +28,10 @@
                     <h3 style="margin-left: 40px;"><a routerLink="/login" class="orange">Clique aqui e Faça login para ter acesso as demais opções como cadastros, consultas, etc. </a></h3>
                     
                 </div> -->
-                <div class="row" [hidden]="!this.loggedIn">
-                    <h3>Seja bem-vind@<span class="txtUsuarioLogado">, {{user.name}}</span> </h3>
-                </div>
+                
+    </div>
+    <div class="row txtUsuarioLogado" [hidden]="!this.loggedIn">
+        <h3>Seja bem-vind@<span class="">, {{user.name}}</span> </h3>
     </div>
 
     <ul class="sidenav" id="mobile-demo" #mobile>

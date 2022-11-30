@@ -1,9 +1,7 @@
 <div class="container contact">
     <h1>Administração de Despesas</h1>
     <h2>Nesta página, podemos fazer a administração dos despesas. Incluir, editar, excluir...</h2>
-    <p class="roxo">(Página desenvolvida para entrega da ATIVIDADE 11, onde seria necessária a criação de uma Classe no Web Storage
-      e validar campos de formulário e botão de submit.)
-    </p>
+  
     <div class="row">
       <div class="col s12">
         <div
@@ -16,9 +14,9 @@
           {{ message }}
         </div>
       </div>
-      <form class="col s12" #form="ngForm" (submit)="onSubmit()">
-        <H2>Preencha os campos abaixo para cadastrar um novo despesa</H2>
-        
+      <br/>
+      <form class="col s12" #form="ngForm" (submit)="onSubmit()">      
+        <p>Preencha os campos abaixo para cadastrar uma nova receita</p>  
   
         <div class="input-field col s12">
           <input
@@ -126,7 +124,7 @@
       </div>
     </div>
 
-    <h2>Total das despesas: {{total | currency : 'BRL'}}</h2>
+    <h2 class="">Total das despesas: {{total | currency : 'BRL'}}</h2>
   
     <app-total-desps></app-total-desps>
     <div class="row">
